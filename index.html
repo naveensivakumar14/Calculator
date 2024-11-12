@@ -9,32 +9,61 @@
 <body>
 
     <div class="container">
+        <h2 style="color: blue;">Calculator</h2>
         <div class="calculator">
             <input type="text" placeholder="0" id="outputScreen"><br>
 
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>/</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>*</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>-</button>
-            <button>.</button>
-            <button>0</button>
-            <button>C</button>
-            <button>=</button>
+            <button value="1" onclick="getInput(event)" >1</button>
+            <button value="2" onclick="getInput(event)" >2</button>
+            <button value="3" onclick="getInput(event)">3</button>
+            <button value="/" onclick="getInput(event)">/</button>
+            <button value="4" onclick="getInput(event)">4</button>
+            <button value="5" onclick="getInput(event)">5</button>
+            <button value="6" onclick="getInput(event)">6</button>
+            <button value="*" onclick="getInput(event)">*</button>
+            <button value="7" onclick="getInput(event)">7</button>
+            <button value="8" onclick="getInput(event)">8</button>
+            <button value="9" onclick="getInput(event)">9</button>
+            <button value="-" onclick="getInput(event)">-</button>
+            <button value="." onclick="getInput(event)">.</button>
+            <button value="0" onclick="getInput(event)">0</button>
+            <button value="C" onclick="clearScreen(event)" style="background-color: red; color: white;">C</button>
+            <button value="=" onclick="Calculate()" style="background-color: lime;">=</button>
           
         </div>
 
     </div>
 
     <script>
-        var output=document.getElementById("outputScreen")
+        var outputScreen=document.getElementById("outputScreen")
+
+        //getting Button click input
+        function getInput(event){
+            var value=event.target.value
+            console.log(value)
+            outputScreen.value=outputScreen.value+value;
+
+        }
+
+        function clearScreen(){
+            outputScreen.value=""
+        }
+
+        function Calculate(){
+            try{
+                outputScreen.value=eval(outputScreen.value)
+            }
+            catch{
+                outputScreen.value="Error"
+            }
+        }
+
+
+
+
+
+            
+           
     </script>
     
 </body>
